@@ -1,0 +1,46 @@
+
+.container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background: #f1f5f9;
+}
+
+.subject-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+input {
+  padding: 8px;
+  min-width: 0;
+}
+
+.subject-form input {
+  flex: 1;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+li span {
+  flex: 1;
+}
+
+li input {
+  width: 70px;
+}

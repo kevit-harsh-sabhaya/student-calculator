@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Student Marks Calculator</h1>
+
+  <div class="summary">
+    <p>Total Marks : {{ totalMarks }}</p>
+    <p>Percentage : {{ percentage }}</p>
+    <p>Result : {{ result }}</p>
+  </div>
+
+  <div class="subject-form">
+    <input type="text" placeholder="Subject Name" [(ngModel)]="subjectName" />
+
+    <input type="number" placeholder="Subject Marks" [(ngModel)]="subjectMarks" />
+
+    <button
+      [disabled]="
+        subjectName.trim() === '' || subjectMarks === null || subjectMarks < 0 || subjectMarks > 100
+      "
+      (click)="addSubjects()"
+    >
+      Add Subject
+    </button>
+  </div>
+
+  
+  @if (subjects.length === 0) {
+    <p>No Subject Added.</p>
+  } @else {
+    <ul>
+      @for (subject of subjects; track subject.id) {
+        <li>
+          <span>{{ subject.Subjectname }}</span>
+
+          <input
+            type="number"
+            [ngModel]="subject.marks"
+            (ngModelChange)="updateMarks(subject.id, $event)"
+          />
+
+          <button (click)="deleteSubject(subject.id)">
+            Delete
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>
